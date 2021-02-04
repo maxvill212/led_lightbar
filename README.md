@@ -16,13 +16,14 @@ I added an LED light bar to my car to assist my vision when driving in back coun
 * Variety of different electrical components
 
 ## Setup
-* Wiring the circuit
+* Wiring the circuit. Diagram can be found [here](CircuitDiagram.png) 
 * Uploading the program to the Arduino
 * Finding the high beam power wire and connecting the Arduino to it
 
 
 ## TODO
-* Add schematic of circuit to project folder
+* Improve circuit diagram readability
+* List all the parts of the circuit
 
 ## WARNING
 If you are not comfortable with circuits and electricity safety (and basic car electronic safety), then do not do this project as things can go very wrong very fast.
