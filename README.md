@@ -1,3 +1,14 @@
+<p align="center"><img src="Pictures/Arduino_Logo.png" width="150"></p>
+
+![Arduino Version](https://img.shields.io/badge/Version-1.8.13-blue)
+
+![Github License](https://img.shields.io/badge/License-MIT-lightgrey)
+
+![Arduino Version](https://img.shields.io/endpoint?url=badges.json)
+
+
+
+
 # LED Light bar
 
 ## Purpose
@@ -16,7 +27,7 @@ I added an LED light bar to my car to assist my vision when driving in back coun
 * Variety of different electrical components
 
 ## Setup
-* Wiring the circuit. Diagram can be found [here](CircuitDiagram.png) 
+* Wiring the circuit. Diagram can be found [here](Pictures/CircuitDiagram.png)
 * Uploading the program to the Arduino
 * Finding the high beam power wire and connecting the Arduino to it
 
@@ -24,6 +35,7 @@ I added an LED light bar to my car to assist my vision when driving in back coun
 ## TODO
 * Improve circuit diagram readability
 * List all the parts of the circuit
+* **Make program event driven**
 
 ## WARNING
 If you are not comfortable with circuits and electricity safety (and basic car electronic safety), then do not do this project as things can go very wrong very fast.
