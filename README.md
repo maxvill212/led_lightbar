@@ -1,15 +1,6 @@
 <p align="center"><img src="Pictures/Arduino_Logo.png" width="150"></p>
 
-![Arduino Version](https://img.shields.io/badge/Version-1.8.13-blue)
-
-![Github License](https://img.shields.io/badge/License-MIT-lightgrey)
-
-![Arduino Version](https://img.shields.io/endpoint?url=badges.json)
-
-
-
-
-# LED Light bar
+# LED bar
 
 ## Purpose
 Control when the LED light bar on my car turns on and off
