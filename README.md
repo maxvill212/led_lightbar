@@ -1,6 +1,13 @@
 <p align="center"><img src="Pictures/Arduino_Logo.png" width="150"></p>
 
-# LED bar
+<center>
+
+![Last Commit](https://img.shields.io/github/last-commit/maxvill212/led_lightbar)
+![License](https://img.shields.io/github/license/maxvill212/led_lightbar?color=lightgrey)
+![Version](https://img.shields.io/github/v/release/maxvill212/led_lightbar)
+</center>
+
+# LED bar control
 
 ## Purpose
 Control when the LED light bar on my car turns on and off
