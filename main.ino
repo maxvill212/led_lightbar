@@ -20,7 +20,7 @@
 *****************************************************************************************/
 
 // Variable Declaration
-int highBeamPin = 5, relayPin = 3, highBeamState, lightBarDelay = 1000;
+int highBeamPin = 3, relayPin = 5, highBeamState, lightBarDelay = 1500;
 bool cycleCheck = false;
 
 // Inital Arduino setup (only runs once)
