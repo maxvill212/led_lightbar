@@ -34,13 +34,15 @@ void loop(){
   highBeamState = digitalRead(highBeamPin);  // Check if high beams are on/off
 
   if (highBeamState == 1){                   // If high beams are on
-    if (!cycleCheck){                        // If high beams have just been turned on (first cycle)
+    if (!cycleCheck){                        // If high beams have just been turned on (first loop cycle)
       delay(lightBarDelay);                  // Delay for flashing oncoming traffic
-      digitalWrite(relayPin, HIGH);          // Turn on LED relay
+      digitalWrite(relayPin, HIGH);          // Turn on LED relay circuit
+      digitalWrite(LED_BUILTIN, HIGH);       // Troubleshooting LED turns on when relay is powered
       cycleCheck = true;
     }
   } else {                                   // High beams have been turned off
     digitalWrite(relayPin, LOW);
+    digitalWrite(LED_BUILTIN, LOW);          // Troubleshooting LED turns off then relay is off
     cycleCheck = false;                      // Enable delay when high beams are turned on
   }
 }
