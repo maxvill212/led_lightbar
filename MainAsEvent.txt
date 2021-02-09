@@ -1,0 +1,52 @@
+/*****************************************************************************************
+*                                                                                        *
+*       ***************ABOUT***************                                              *
+*       This is a version of the LED bar program that is event based, instead of         *
+*       the Arduino's natural loop() way of running a program. The final result is the   *
+*       same. The library that permits this is the Eventually library.                   *
+*                                   STILL IN THE WORKS                                   *
+*                                                                                        *
+*                                                                                        *
+*       *************VARIABLES*************                                              *
+*       Integer                                                                          *
+*           highBeamPin   -> The pin that detects if the high beams were turned on       *
+*           relayPin      -> The pin that signals the relay to open or close             *
+*           highBeamState -> Variable that reads the state of highBeamPin                *
+*           lightBarDelay -> Delay for light bar being powered                           *
+*       Boolean                                                                          *
+*           cycleCheck    -> Checks if the LED bar is turning on or was already on       *
+*                            during another Arduino cycle                                *
+*                                                                                        *
+*****************************************************************************************/
+
+#include <Eventually.h>
+
+int highBeamPin = 3, relayPin = 5, lightBarDelay = 1500;
+bool lightBarState = false;
+EvtManager mgr;
+
+USE_EVENTUALLY_LOOP(mgr)
+
+void setup(){
+    pinMode(highBeamPin,OUTPUT);
+    pinMode(relayPin, INPUT); //Make it work with PULLUP_INPUT
+    mgr.addListener(new EvtPinListener(relayPin, (EvtAction)highBeamOn));
+}
+
+bool highBeamOn(){
+    mgr.resetContext();
+    mgr.addListener(new EvtTimeListener(lightBarDelay, true, (EvtAction)startLightBar()));
+    mgr.addListener(new EvtPinListener(relayPin, (EvtAction)stopLightBar));
+}
+
+bool startLightBar(){
+    lightBarState = !lightBarState;
+    digitalWrite(relayPin, lightBarState);
+    return false;
+}
+
+bool stopLightBar(){
+    mgr.resetContext();
+    mgr.addListener(new EvtPinListener(highBeamPin, (EvtAction)startLightBar));
+    return true;
+}
