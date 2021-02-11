@@ -25,7 +25,7 @@ I added an LED light bar to my car to assist my vision when driving in back coun
 * Variety of different electrical components
 
 ## Setup
-* Wiring the circuit. Diagram can be found [here](Pictures/CircuitDiagram.png)
+* Wiring the circuit. Diagram can be found [here](Pictures/Circuit_Diagram.png)
 * Uploading the program to the Arduino
 * Finding the high beam power wire and connecting the Arduino to it
 
