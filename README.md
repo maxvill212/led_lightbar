@@ -35,7 +35,7 @@ I added an LED light bar to my car to assist my vision when driving in back coun
 * **Make program event driven**
 
 ## WARNING
-If you are not comfortable with circuits and electricity safety (and basic car electronic safety), then do not do this project as things can go very wrong very fast. I am not an electrical engineer, just a random dude that bought an LED bar, was bored and decided to challenge myself to make add functionality to it.
+If you are not comfortable with circuits and electricity safety (and basic car electronic safety), then do not do this project as things can go very wrong very fast. I am not an electrical engineer, just a random dude that bought an LED bar, was bored and decided to challenge myself to add functionality to it.
 
 ## Versions
 ### v1
