@@ -26,7 +26,7 @@
 ******************************************************************************************/
 
 // Variable Declaration
-const int highBeamPin = 3, relayPin = 5, lightBarDelay = 1500;
+const int highBeamPin = 5, relayPin = 3, lightBarDelay = 1000;
 int highBeamState;
 unsigned long prevMillis = 0, currentMillis = 0;
 bool cycleCheck = false;

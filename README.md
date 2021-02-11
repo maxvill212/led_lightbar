@@ -43,5 +43,5 @@ If you are not comfortable with circuits and electricity safety (and basic car e
 ### v1.1
 * Introduced a troubleshoot LED to debug when the relay is suppose to be on or not (if the ARduino correctly detected if the high beams are on or off)
 ### v2
-* The way the program checks for the delay has changed. Now it is based on the millis()function. This allows to the loop to continue operating even when it is monitoring the time to delay the relay circuit activation.
+* The way the program checks for the delay has changed. Now it is based on the millis() function. This allows to the loop to continue operating even when it is monitoring the time to delay the relay circuit activation.
 * The Arduino circuitry has been completely reworked, as the previous circuit had major design flaws.
