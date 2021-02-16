@@ -6,19 +6,22 @@
 *       flashing people that are on their highbeams without blinding them with the bar.   *
 *                                                                                         *
 *       **************VERSION**************                                               *
-*       v2 Patchnotes:                                                                    *
-*             - The way the program checks for the delay has changed. Now it is based     *
-*               on the millis() function. This allows to the loop to continue operating   *
-*               even when it is monitoring the time to delay the relay circuit activation *
-*             - The Arduino circuitry has been completely reworked, as the previous       *
-*               circuit had major design flaws.                                           *
-*                                                                                         *
+*       v2.1 Patchnotes:                                                                  *
+*             - I'm assuming because of the extreme current drop, the Arduino is          *
+*               receiveing a slight pulse rather than a constant current when the high    *
+*               beams are on. This means that prevMillis() is often reset before the      *
+*               delay is up, and the lightbar never turns on.                             *
+*             - Other times, the light bar would turn on, but eventually turn off again.  *
+*               Pressed for time, this is the version in the car at the moment, there is  *
+*               no delay.                                                                 *
+*             - Patch coming soon!                                                        *
 *       *************VARIABLES*************                                               *
 *       Integer                                                                           *
 *           highBeamPin   -> The pin that detects if the high beams were turned on        *
 *           relayPin      -> The pin that signals the relay to open or close              *
 *           highBeamState -> Variable that reads the state of highBeamPin                 *
-*           lightBarDelay -> Delay for light bar being powered                            *
+*           stateLED      -> The pin that powers the troubleshooting LED on the PCU       *
+*                            LED_BUILTIN was not bright enough for me.                    *
 *       Boolean                                                                           *
 *           cycleCheck    -> Checks if the LED bar is turning on or was already on        *
 *                            during another Arduino cycle                                 *
@@ -26,32 +29,28 @@
 ******************************************************************************************/
 
 // Variable Declaration
-const int highBeamPin = 5, relayPin = 3, lightBarDelay = 1000;
+const int highBeamPin = 5, relayPin = 7, stateLED = 9;
 int highBeamState;
-unsigned long prevMillis = 0, currentMillis = 0;
-bool cycleCheck = false;
 
 // Inital Arduino setup (only runs once)
 void setup(){
   pinMode(relayPin, OUTPUT);   // Set pin as output pin
   pinMode(highBeamPin, INPUT); // Set pin as input pin
+  pinMode(stateLED, OUTPUT);   // Using LED_BUILTIN would work as well
 }
 
 // Program that runs continuously while the Arduino has power
 void loop(){
-  highBeamState = digitalRead(highBeamPin);          // Check if high beams are on/off
-  currentMillis = millis();                          // Check current time for delay functionality
+  highBeamState = digitalRead(highBeamPin); // Check the state of the high beams
 
-  if (highBeamState == 1){                           // If high beams are on
-    digitalWrite(LED_BUILTIN, HIGH);                 // Troubleshooting LED turns on when high beams are on
-    if (currentMillis - prevMillis >= lightBarDelay) // Checks if the delay requirements has been met
-    {
-      digitalWrite(relayPin, HIGH);                  // Turn on LED relay circuit
-    }
-  } else {                                           // High beams are off
-    digitalWrite(relayPin, LOW);
-    digitalWrite(LED_BUILTIN, LOW);                  // Troubleshooting LED turns off then relay is off
-    prevMillis = currentMillis;                      // Set reference point for the delay
+  // If high beams are on
+  if (highBeamState == 1){
+    digitalWrite(relayPin, HIGH);           // Turn on LED relay circuit
+    digitalWrite(stateLED, HIGH);           // Turn on troubleshooting LED
 
+  // High beams are off
+  } else {
+    digitalWrite(relayPin, LOW);            // Turn off relay circuit
+    digitalWrite(stateLED, LOW);            // Turn off troubleshooting LED
   }
 }
