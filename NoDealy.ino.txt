@@ -8,7 +8,7 @@
 *       **************VERSION**************                                               *
 *       v2.1 Patchnotes:                                                                  *
 *             - I'm assuming because of the extreme current drop, the Arduino is          *
-*               receiveing a slight pulse rather than a constant current when the high    *
+*               receiving a slight pulse rather than a constant current when the high    *
 *               beams are on. This means that prevMillis() is often reset before the      *
 *               delay is up, and the lightbar never turns on.                             *
 *             - Other times, the light bar would turn on, but eventually turn off again.  *

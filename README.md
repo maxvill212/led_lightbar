@@ -45,3 +45,5 @@ If you are not comfortable with circuits and electricity safety (and basic car e
 ### v2
 * The way the program checks for the delay has changed. Now it is based on the millis() function. This allows to the loop to continue operating even when it is monitoring the time to delay the relay circuit activation.
 * The Arduino circuitry has been completely reworked, as the previous circuit had major design flaws.
+### v3
+* The delay between turning on the high beam and the light bar is now working.
