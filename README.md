@@ -45,12 +45,8 @@ If you are not comfortable with circuits and electricity safety (and basic car e
 ### v2
 * The way the program checks for the delay has changed. Now it is based on the millis() function. This allows to the loop to continue operating even when it is monitoring the time to delay the relay circuit activation.
 * The Arduino circuitry has been completely reworked, as the previous circuit had major design flaws.
-<<<<<<< HEAD
-=======
 ### v2.1
-* I'm assuming because of the extreme current drop, the Arduino is receiving a slight pulse rather than a constant current when the high beams are on. This means that prevMillis() is often reset before the delay is up, and the lightbar never turns on. Other times, the light bar would turn on, but eventually turn off again.
+* I'm assuming because of the extreme current drop, the Arduino is receiving a slight pulse rather than a constant current when the high beams are on. This means that prevMillis() is often reset before the delay is up, and the light bar never turns on. Other times, the light bar would turn on, but eventually turn off again.
 * Pressed for time, this is the version in the car at the moment, there is no delay.
-
->>>>>>> b767b11c2d28417ff6c60fbc4d2616740c00464e
 ### v3
 * The delay between turning on the high beam and the light bar is now working.
