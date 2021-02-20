@@ -1,11 +1,9 @@
 <p align="center"><img src="Pictures/Arduino_Logo.png" width="150"></p>
 
-<center>
 
 ![Last Commit](https://img.shields.io/github/last-commit/maxvill212/led_lightbar)
 ![License](https://img.shields.io/github/license/maxvill212/led_lightbar?color=lightgrey)
 ![Version](https://img.shields.io/github/v/release/maxvill212/led_lightbar)
-</center>
 
 # LED bar control
 
@@ -23,20 +21,21 @@ I added an LED light bar to my car to assist my vision when driving in back coun
 ### Hardware:
 * [Arduino Nano](https://store.arduino.cc/usa/arduino-nano)
 * Variety of different electrical components
-
+  * 1 5V relay typically used with Arduino projects
+  * 4 1M ohm resistor in series
+  * 1 1k ohm resistor
+  * 1 transistor typically used with Arduino projects
+  * Switch to turn off LED bar even when high beams are on
+  * Wires
+  * Printed circuit board
 ## Setup
 * Wiring the circuit. Diagram can be found [here](Pictures/Circuit_Diagram.png)
 * Uploading the program to the Arduino
 * Finding the high beam power wire and connecting the Arduino to it
-
-## TODO
-* Improve circuit diagram readability
-* List all the parts of the circuit
-* **Make program event driven**
-
 ## WARNING
 If you are not comfortable with circuits and electricity safety (and basic car electronic safety), then do not do this project as things can go very wrong very fast. I am not an electrical engineer, just a random dude that bought an LED bar, was bored and decided to challenge myself to add functionality to it.
-
+## TODO
+* Make program event driven
 ## Versions
 ### v1
 * First release of the program
