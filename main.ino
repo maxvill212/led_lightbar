@@ -44,7 +44,7 @@ int highBeamState;
 unsigned long prevTime = 0, currentTime = 0;
 
 //Variable Declaration for buffer
-const int bufferTime = 100;
+const int bufferTime = 200;
 int bufferHighBeamState;
 unsigned long bufferCurrentTime = 0, bufferPrevTime = 0;
 
@@ -76,12 +76,12 @@ void loop(){
 
 // Function to ensure the high beam was turned off before turning off light bar
 bool buffer(){
-  bufferPrevTime = bufferCurrentTime;                        // Get the reference point for buffer time
-  while (bufferCurrentTime - bufferPrevTime < bufferTime){   // While the delay has not been reached
-    bufferHighBeamState = digitalRead(highBeamPin);          // Update if the Arduino gets a pulse from the highbeam
-    if(bufferHighBeamState == 1){                            // Check if the Arduino gets a pulse from the highbeam
-      return false;                                          // If at any point the Arduino gets a pulse, return false
+  bufferPrevTime = millis();                                  // Get the reference point for buffer time
+  while ((bufferCurrentTime - bufferPrevTime) < bufferTime){  // While the delay has not been reached
+    bufferHighBeamState = digitalRead(highBeamPin);           // Update if the Arduino gets a pulse from the highbeam
+    if(bufferHighBeamState == 1){                             // Check if the Arduino gets a pulse from the highbeam
+      return false;                                           // If at any point the Arduino gets a pulse, return false
     }
-    bufferCurrentTime = millis();                            // Update current time
-  } return true;                                             // If the Arduino does not receive a pulse, then the lightbar is off
+    bufferCurrentTime = millis();                             // Update current time
+  } return true;                                              // If the Arduino does not receive a pulse, then the lightbar is off
 }
